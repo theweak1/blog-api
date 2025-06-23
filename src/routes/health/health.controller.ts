@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 
-import config from "../config";
+import config from "../../config";
 
 export function getHealth(req: Request, res: Response) {
 	res.json({

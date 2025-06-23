@@ -1,0 +1,11 @@
+import type { Router } from "express";
+
+import express from "express";
+
+import blogs from "./blogs/blogs.index";
+
+const v1: Router = express.Router();
+
+v1.use("/blogs", blogs);
+
+export default v1;
