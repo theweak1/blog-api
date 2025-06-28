@@ -1,8 +1,8 @@
 import type { NextFunction, Request, Response } from "express";
 
-import config from "../config";
-import CustomError from "../errors/customError";
-import { getErrorMessage } from "../utils";
+import config from "@/config";
+import CustomError from "@/errors/customError";
+import { getErrorMessage } from "@/utils";
 
 export default function errorHandler(
 	error: unknown,

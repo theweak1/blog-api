@@ -1,10 +1,10 @@
 import cors from "cors";
 import express from "express";
 
-import errorHandler from "./middleware/errorHandler";
-import morganMiddleware from "./middleware/morganMiddleware";
-import health from "./routes/health/health.index";
-import v1 from "./routes/v1";
+import errorHandler from "@/middleware/errorHandler";
+import morganMiddleware from "@/middleware/morganMiddleware";
+import health from "@/routes/health/health.index";
+import v1 from "@/routes/v1";
 
 export function createServer() {
 	const app = express();

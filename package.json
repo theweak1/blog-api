@@ -11,7 +11,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "db:seed": "ts-node src/scripts/seed.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",

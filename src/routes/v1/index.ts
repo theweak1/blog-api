@@ -2,7 +2,7 @@ import type { Router } from "express";
 
 import express from "express";
 
-import blogs from "./blogs/blogs.index";
+import blogs from "./blogs/blogs.route";
 
 const v1: Router = express.Router();
 

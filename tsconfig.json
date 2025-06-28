@@ -1,11 +1,13 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "forceConsistentCasingInFileNames": true
-  },
-	"include": ["src/**/*", "utils.ts"],
+	"extends": "@tsconfig/node22/tsconfig.json",
+	"compilerOptions": {
+		"rootDir": "./src",
+		"outDir": "./dist",
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {"@/*":["./src/*"]}
+	},
+	"include": ["src/**/*", "utils.ts", "src/routes/v1", "routes/v1/blogs"],
 	"exclude": ["node_modules", "dist"],
 	"ts-node": { "files": true }
 }
