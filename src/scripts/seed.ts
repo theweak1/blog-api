@@ -12,7 +12,7 @@ async function main() {
 	for (let i = 0; i < blogCount; i++) {
 		const title = capitalize(faker.word.noun());
 		const body = faker.lorem.paragraphs(3);
-		addBlog({ title, body });
+		addBlog(title, body);
 	}
 }
 

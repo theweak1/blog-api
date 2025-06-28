@@ -1,1 +1,1 @@
-type ErrorCode = "ERR_NF";
+type ErrorCode = "ERR_NF" | "ERR_VALID";

@@ -2,7 +2,7 @@
 GET http://localhost:4000/v1/blogs HTTP/1.1
 
 ### Get blog by ID
-GET http://localhost:4000/v1/blogs/asdfsgsfd HTTP/1.1
+GET http://localhost:4000/v1/blogs/06ef4f4f-68a3-43ff-a165-9fca4755040d HTTP/1.1
 
 ### Post a blog
 POST http://localhost:4000/v1/blogs HTTP/1.1
@@ -17,4 +17,4 @@ Content-Type: application/json
 PUT  http://localhost:4000/v1/blogs/1 HTTP/1.1
 
 ### delete blog by ID
-DELETE  http://localhost:4000/v1/blogs/asdfsgsfd HTTP/1.1
+DELETE  http://localhost:4000/v1/blogs/3865da10-b30b-43a3-9f29-7b27092b025a HTTP/1.1

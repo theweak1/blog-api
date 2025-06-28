@@ -3,7 +3,6 @@ import fs from "node:fs";
 import path from "node:path";
 
 import CustomError from "@/errors/customError";
-import EntityNotFoundError from "@/errors/entityNotFound";
 
 const dbPath = path.join(__dirname, "../../data/db.json");
 
@@ -16,13 +15,6 @@ function writeDB(data: object) {
 	fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
 }
 
-type Blog = {
-	id: string;
-
-	title: string;
-	body: string;
-};
-
 // === CRUD Methods ===
 
 export function listBlogs(): Blog[] {
@@ -33,13 +25,6 @@ export function listBlogs(): Blog[] {
 export function getSpecificBlog(id: string): Blog | undefined {
 	const blogs = listBlogs();
 	const blog = blogs.find((blog) => blog.id === id);
-	if (!blog) {
-		throw new EntityNotFoundError({
-			message: "Blog not found",
-			statusCode: 404,
-			code: "ERR_NF",
-		});
-	}
 	return blog;
 }
 
@@ -69,7 +54,7 @@ export function removeBlog(id: string): boolean {
 		throw new CustomError({
 			message: "Blog could not be deleted",
 			statusCode: 500,
-			code: "ERR_SRV",
+			code: "ERR_SVR",
 		});
 	}
 
