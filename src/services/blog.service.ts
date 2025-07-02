@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import CustomError from "@/errors/customError";
+import EntityNotFoundError from "@/errors/entityNotFound.js";
 
 const dbPath = path.join(__dirname, "../../data/db.json");
 
@@ -43,6 +44,34 @@ export function addBlog(title: string, body: string): Blog {
 	writeDB(db);
 
 	return newBlog;
+}
+
+export function updateBlog(
+	id: string,
+	updates: Partial<Pick<Blog, "title" | "body" | "images">>,
+): Blog {
+	const db = readDB();
+	const blogs = db.blogs || [];
+
+	const blogIndex = blogs.findIndex((blog: Blog) => blog.id === id);
+	if (blogIndex === -1) {
+		throw new EntityNotFoundError({
+			message: "Blog not found",
+			statusCode: 404,
+			code: "ERR_NF",
+		});
+	}
+
+	// Update fields
+	blogs[blogIndex] = {
+		...blogs[blogIndex],
+		...updates,
+	};
+
+	db.blogs = blogs;
+	writeDB(db);
+
+	return blogs[blogIndex];
 }
 
 export function removeBlog(id: string): boolean {
